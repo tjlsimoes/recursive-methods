@@ -46,6 +46,7 @@ def roman_to_int(roman_mapping, two_values, one_values, roman, result = 0)
         p "sign: #{sign}, count: #{count}, result: #{result}, roman: #{roman} "
         
     end
+    result
 end
 
 p one_values
