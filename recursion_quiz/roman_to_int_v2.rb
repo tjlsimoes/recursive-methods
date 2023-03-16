@@ -32,11 +32,10 @@ def roman_to_int(roman_mapping, values, roman, result = 0)
       roman.slice!(sign)
 
       p "sign: #{sign}, match: true, result: #{result}, roman: #{roman}, count: #{roman.count(sign)}."
-      
       return roman_to_int(roman_mapping, values, roman, result) if roman.count(sign) > 0
-
     end
   end
+  result
 end
 
-  roman_to_int(roman_mapping, values, "MMMCMLXXIII")
+roman_to_int(roman_mapping, values, "MMMCMLXXIII")
