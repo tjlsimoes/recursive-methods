@@ -14,7 +14,7 @@ roman_mapping = {
     1 => "I"
   }
 
-# Sort values of roman_mapping hash so that two-lettered elements come first
+Sort values of roman_mapping hash so that two-lettered elements come first
 
 values = roman_mapping.values.sort_by { |sign| sign.size}.reverse
 
@@ -27,7 +27,7 @@ def roman_to_int(roman_mapping, values, roman, result = 0)
     
     if roman.match?(sign)
 
-      result += roman_mapping.key(sign) # Count problem...
+      result += roman_mapping.key(sign) 
 
       roman.slice!(sign)
 
@@ -39,3 +39,35 @@ def roman_to_int(roman_mapping, values, roman, result = 0)
 end
 
 roman_to_int(roman_mapping, values, "MMMCMLXXIII")
+
+
+# Solution
+
+# roman_mapping = {
+#   "M" => 1000,
+#   "CM" => 900,
+#   "D" => 500,
+#   "CD" => 400,
+#   "C" => 100,
+#   "XC" => 90,
+#   "L" => 50,
+#   "XL" => 40,
+#   "X" => 10,
+#   "IX" => 9,
+#   "V" => 5,
+#   "IV" => 4,
+#   "I" => 1
+# }
+
+# def roman_to_integer(roman_mapping, str, result = 0)
+#   return result if str.empty?
+#   roman_mapping.keys.each do |roman|
+#     if str.start_with?(roman)
+#       result += roman_mapping[roman]
+#       str = str.slice(roman.length, str.length)
+#       return roman_to_integer(roman_mapping, str, result)
+#     end
+#   end
+# end
+
+# p roman_to_integer(roman_mapping, "MMMCMLXXIII")
